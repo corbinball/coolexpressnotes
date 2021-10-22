@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const api = require('./routes/apiroutes.js');
 const html = require('./routes/htmlroutes.js')
-const uuid = require('uuid');
+//const uuid = require('uuid'); not using until delete method
 const {
     readFromFile,
     readAndAppend,
@@ -48,7 +48,7 @@ app.post('/api/notes', (req, res) => {
       const newNote = {
         title,
         text,
-        //note_id: uuid(),
+        //note_id: uuid(), not using until delte method
       };
   
       readAndAppend(newNote, './db/db.json');
