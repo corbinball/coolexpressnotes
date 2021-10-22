@@ -5,23 +5,11 @@ const {
     readAndAppend,
   } = require('../helpers/fsUtils');
 
-// add get routes for notes.html and index.html
-
-notes.get('/notes', (req, res) =>
-res.sendFile(path.join(__dirname, '/public/notes.html'))
-);
-
-notes.get('*', (req, res) =>
-  res.sendFile(path.join(__dirname, 'public/index.html'))
-);
-
 //get route to return all saveds notes from the db.json file
 
 notes.get('/api/notes', (req, res) => {
     readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
   });
-
-
 
 //post route to create a new note
 
