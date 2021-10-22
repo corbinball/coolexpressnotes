@@ -15,9 +15,9 @@ notes.get('/api/notes', (req, res) => {
 
 
 
-  //post route to create a new note
+//post route to create a new note
 
-  notes.post('/', (req, res) => {
+notes.post('/', (req, res) => {
     console.log(req.body);
   
     const { title, text } = req.body;
@@ -34,7 +34,8 @@ notes.get('/api/notes', (req, res) => {
     } else {
       res.error('Error! Something went wrong');
     }
-  });
+});
 
+//if time, add delete route for bonus
 
-  
+module.exports = notes;
