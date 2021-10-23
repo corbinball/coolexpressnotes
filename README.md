@@ -15,15 +15,12 @@ It is a clean and simple app to use for taking notes.
 - [License](#license)
 
 ## Live-Link
-https://corbinball.github.io/coolexpressnotes/
+https://coolexpressnotes.herokuapp.com/
 
 ## Usage
 This can be used many ways. Any way in which you need to take and store notes.
 
     
-    :Link to Video of generator in action:
-
-//insert link here
 
     :ScreenShots!
 
