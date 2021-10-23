@@ -3,6 +3,7 @@ const uuid = require('uuid');
 const {
     readFromFile,
     readAndAppend,
+    writeToFile,
   } = require('../helpers/fsUtils');
 
 //get route to return all saveds notes from the db.json file
@@ -32,6 +33,17 @@ notes.post('/api/notes', (req, res) => {
     }
 });
 
-//if time, add delete route for bonus, will use writetofile
+// delete route for note
+app.delete('/api/notes/:id', (req, res) => {
+  const noteDid = req.params.id;
+  readFromFile('./db/db.json')
+    .then((data) => JSON.parse(data))
+    .then((json) => {
+      const result = json.filter((title) => title.id !== noteDid);
+      writeToFile('./db/db.json', result);
+      res.json(`Note has been deleted`);
+    });
+});
+
 
 module.exports = notes;
