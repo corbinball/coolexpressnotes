@@ -1,11 +1,12 @@
 const express = require('express');
 const path = require('path');
 const api = require('./routes/apiroutes.js');
-const html = require('./routes/htmlroutes.js')
-//const uuid = require('uuid'); not using until delete method
+const html = require('./routes/htmlroutes.js');
+const { v4: uuidv4 } = require('uuid');
 const {
     readFromFile,
     readAndAppend,
+    writeToFile,
   } = require('./helpers/fsUtils');
 
 
@@ -48,7 +49,7 @@ app.post('/api/notes', (req, res) => {
       const newNote = {
         title,
         text,
-        //note_id: uuid(), not using until delte method
+        id: uuidv4(),
       };
   
       readAndAppend(newNote, './db/db.json');
@@ -59,13 +60,17 @@ app.post('/api/notes', (req, res) => {
 });
 
 
-
-
-
-
-
-
-
+// delete route for note
+app.delete('/api/notes/:id', (req, res) => {
+    const noteDid = req.params.id;
+    readFromFile('./db/db.json')
+      .then((data) => JSON.parse(data))
+      .then((json) => {
+        const result = json.filter((title) => title.id !== noteDid);
+        writeToFile('./db/db.json', result);
+        res.json(`Note has been deleted`);
+      });
+  });
 
 
 app.listen(PORT, () =>
