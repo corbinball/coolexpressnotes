@@ -24,7 +24,14 @@ This can be used many ways. Any way in which you need to take and store notes.
 
     :ScreenShots!
 
-//insert screeen shots here
+    *Show added notes*
+
+ <image src= "https://github.com/corbinball/coolexpressnotes/blob/main/screenshots/shows%20notes.png?raw=true" >
+
+    *Show deleted notes*
+
+<image src= "https://github.com/corbinball/coolexpressnotes/blob/main/screenshots/shows%20delete.png?raw=true">
+
 
 
 ## Features
