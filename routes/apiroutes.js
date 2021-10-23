@@ -34,7 +34,7 @@ notes.post('/api/notes', (req, res) => {
 });
 
 // delete route for note
-app.delete('/api/notes/:id', (req, res) => {
+notes.delete('/api/notes/:id', (req, res) => {
   const noteDid = req.params.id;
   readFromFile('./db/db.json')
     .then((data) => JSON.parse(data))
